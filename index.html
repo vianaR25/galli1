@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Grupo Galli - Vigilância e Facilities</title>
+    <link rel="icon" type="image/png" href="brasao.png" />
+    <meta name="description" content="Excelência em segurança patrimonial e facilities. Soluções personalizadas para sua empresa ou residência." />
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Open Sans', 'sans-serif'],
+              display: ['Montserrat', 'sans-serif'],
+            },
+            colors: {
+              galli: {
+                gold: '#C5B358',
+                beige: '#D4CCB3',
+                dark: '#1A1A1A',
+                gray: '#4A4A4A'
+              }
+            },
+            animation: {
+              'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+            },
+            keyframes: {
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(40px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+      .carousel-track { transition: transform 0.5s ease-out; }
+      /* Classe usada pelo JavaScript para a animação de scroll */
+      .scroll-hidden { opacity: 0; } 
+    </style>
+</head>
+<body class="bg-gray-50 text-galli-dark antialiased selection:bg-galli-gold selection:text-white flex flex-col min-h-screen font-sans overflow-x-hidden">
+
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-black/40 backdrop-blur-sm py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="flex items-center gap-3 group">
+                        <div class="relative h-12 w-12 flex items-center justify-center">
+                            <img src="brasao.png" alt="Brasão Grupo Galli" class="object-contain max-h-full max-w-full drop-shadow-md group-hover:scale-105 transition-transform duration-300" />
+                        </div>
+                        <div class="flex flex-col justify-center">
+                            <span id="nav-text-galli" class="font-display font-black text-2xl tracking-tighter uppercase leading-none transition-colors duration-300 text-white">GALLI</span>
+                            <span class="text-[10px] font-bold tracking-[0.2em] text-galli-gold uppercase leading-tight">Vigilância e Facilities</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#quem-somos" class="nav-link-desktop font-bold text-xs uppercase tracking-widest transition-all duration-300 hover:text-galli-gold text-white drop-shadow-md">Quem Somos</a>
+                    <a href="#servicos" class="nav-link-desktop font-bold text-xs uppercase tracking-widest transition-all duration-300 hover:text-galli-gold text-white drop-shadow-md">Serviços</a>
+                    <a href="#diferenciais" class="nav-link-desktop font-bold text-xs uppercase tracking-widest transition-all duration-300 hover:text-galli-gold text-white drop-shadow-md">Diferenciais</a>
+                    <a href="#galeria" class="nav-link-desktop font-bold text-xs uppercase tracking-widest transition-all duration-300 hover:text-galli-gold text-white drop-shadow-md">Galeria</a>
+                    <a href="#contato" class="bg-galli-gold text-white px-6 py-2.5 rounded-md font-black text-xs uppercase tracking-widest hover:bg-yellow-600 transition-all transform hover:-translate-y-0.5 shadow-lg flex items-center gap-2 cursor-pointer">
+                        <i data-lucide="phone" class="w-3.5 h-3.5" stroke-width="3"></i> Contrate Agora
+                    </a>
+                </div>
+
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="transition-colors text-white">
+                        <i data-lucide="menu" id="menu-icon" class="w-7 h-7"></i>
+                        <i data-lucide="x" id="close-icon" class="w-7 h-7 hidden"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white absolute w-full shadow-2xl border-t border-gray-100 animate-fade-in-up">
+            <div class="px-4 pt-4 pb-6 space-y-2 flex flex-col items-center">
+                <a href="#quem-somos" class="mobile-link block px-3 py-3 text-sm font-black text-gray-800 hover:text-galli-gold w-full text-center uppercase tracking-widest">Quem Somos</a>
+                <a href="#servicos" class="mobile-link block px-3 py-3 text-sm font-black text-gray-800 hover:text-galli-gold w-full text-center uppercase tracking-widest">Serviços</a>
+                <a href="#diferenciais" class="mobile-link block px-3 py-3 text-sm font-black text-gray-800 hover:text-galli-gold w-full text-center uppercase tracking-widest">Diferenciais</a>
+                <a href="#galeria" class="mobile-link block px-3 py-3 text-sm font-black text-gray-800 hover:text-galli-gold w-full text-center uppercase tracking-widest">Galeria</a>
+                <a href="#contato" class="mobile-link block px-3 py-3 text-sm font-black text-gray-800 hover:text-galli-gold w-full text-center uppercase tracking-widest">Contato</a>
+                <a href="#contato" class="mobile-link mt-4 block w-full text-center bg-galli-gold text-white px-6 py-4 font-black uppercase tracking-widest rounded-lg shadow-md">Fale Conosco</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow">
+        <div class="relative bg-gray-900 min-h-screen flex items-center justify-center overflow-hidden pt-32 pb-24 md:py-32">
+            <div id="hero-slides" class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80" class="hero-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-40" />
+                <img src="https://images.unsplash.com/photo-1582139329536-e7284fece509?auto=format&fit=crop&q=80" class="hero-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-0" />
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80" class="hero-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-0" />
+                <div class="absolute inset-0 bg-gradient-to-b from-gray-900/50 to-gray-900/90"></div>
+            </div>
+
+            <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
+                <div class="mb-8 flex justify-center">
+                    <img src="brasao.png" alt="Brasão" class="w-32 h-auto md:w-48 md:h-auto animate-fade-in-up drop-shadow-2xl" />
+                </div>
+                <h1 class="text-4xl md:text-7xl font-display font-black text-white mb-6 tracking-tight leading-tight uppercase">
+                    <span class="text-galli-gold">Galli</span> Vigilância <br/> e Facilities
+                </h1>
+                <p class="text-gray-300 text-lg md:text-2xl mb-12 max-w-2xl mx-auto font-light">
+                    Protegendo seu patrimônio com inteligência, confiança e resultados. Soluções completas para sua empresa e residência.
+                </p>
+                <div class="flex flex-col md:flex-row gap-4 justify-center">
+                    <a href="#servicos" class="bg-galli-gold text-white px-8 py-4 rounded-md font-bold text-lg uppercase tracking-wider hover:bg-yellow-600 transition-all transform hover:-translate-y-1 shadow-lg shadow-galli-gold/30">Nossas Soluções</a>
+                    <a href="#contato" class="border-2 border-white text-white px-8 py-4 rounded-md font-bold text-lg uppercase tracking-wider hover:bg-white hover:text-gray-900 transition-all transform hover:-translate-y-1">Solicitar Orçamento</a>
+                </div>
+            </div>
+        </div>
+
+        <section id="quem-somos" class="py-20 bg-galli-beige/30">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-anim">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <div class="border-l-4 border-galli-gold pl-6 mb-8">
+                            <h2 class="text-4xl md:text-5xl font-display font-black text-galli-dark uppercase leading-none">
+                                Quem Somos & <br/>
+                                <span class="text-galli-gold">Nosso Propósito</span>
+                            </h2>
+                        </div>
+                        <div class="space-y-6 text-lg text-gray-700 font-light leading-relaxed mb-8">
+                            <p>O <strong>Grupo Galli</strong> é uma referência em soluções integradas de segurança e facilities. 
+                                <span class="block mt-2 font-normal text-galli-dark border-l-2 border-galli-gold pl-4 italic">"Nosso objetivo é blindar o seu patrimônio e garantir a continuidade do seu negócio, permitindo que você foque no que realmente importa."</span>
+                            </p>
+                            <p><strong>Para que servimos?</strong><br/>Atuamos estrategicamente para mitigar riscos, prevenir perdas e assegurar a integridade física de pessoas e ativos. Seja através da vigilância ostensiva armada, do monitoramento eletrônico inteligente ou da gestão de facilities (limpeza e conservação), nossa missão é entregar tranquilidade e eficiência operacional.</p>
+                            <p>Combinamos mão de obra altamente qualificada com tecnologia de ponta para criar ambientes seguros, limpos e produtivos para empresas, condomínios e indústrias.</p>
+                        </div>
+
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
+                            <div class="flex flex-col items-center text-center group">
+                                <div class="w-16 h-16 rounded-full bg-white shadow-md flex items-center justify-center text-galli-gold mb-3 group-hover:bg-galli-gold group-hover:text-white transition-colors duration-300">
+                                    <i data-lucide="building-2" class="w-7 h-7"></i>
+                                </div>
+                                <span class="font-bold text-sm uppercase tracking-wider text-gray-800">Confiança</span>
+                            </div>
+                            <div class="flex flex-col items-center text-center group">
+                                <div class="w-16 h-16 rounded-full bg-white shadow-md flex items-center justify-center text-galli-gold mb-3 group-hover:bg-galli-gold group-hover:text-white transition-colors duration-300">
+                                    <i data-lucide="eye" class="w-7 h-7"></i>
+                                </div>
+                                <span class="font-bold text-sm uppercase tracking-wider text-gray-800">Inteligência</span>
+                            </div>
+                            <div class="flex flex-col items-center text-center group">
+                                <div class="w-16 h-16 rounded-full bg-white shadow-md flex items-center justify-center text-galli-gold mb-3 group-hover:bg-galli-gold group-hover:text-white transition-colors duration-300">
+                                    <i data-lucide="scale" class="w-7 h-7"></i>
+                                </div>
+                                <span class="font-bold text-sm uppercase tracking-wider text-gray-800">Planejamento</span>
+                            </div>
+                            <div class="flex flex-col items-center text-center group">
+                                <div class="w-16 h-16 rounded-full bg-white shadow-md flex items-center justify-center text-galli-gold mb-3 group-hover:bg-galli-gold group-hover:text-white transition-colors duration-300">
+                                    <i data-lucide="trending-up" class="w-7 h-7"></i>
+                                </div>
+                                <span class="font-bold text-sm uppercase tracking-wider text-gray-800">Resultado</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute top-0 right-0 w-2/3 h-full bg-galli-gold/20 rounded-lg -z-10 transform translate-x-4 -translate-y-4"></div>
+                        <img src="foto-principal.jpg" alt="Equipe Galli em Treinamento" class="rounded-lg shadow-2xl w-full object-cover h-[500px]" loading="lazy" />
+                        <div class="absolute -bottom-6 -left-6 bg-galli-dark text-white p-6 rounded-lg shadow-lg hidden md:block">
+                            <p class="text-3xl font-black text-galli-gold">+10 Anos</p>
+                            <p class="text-sm uppercase tracking-widest">Protegendo Vidas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicos" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-anim">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-display font-black text-galli-dark uppercase mb-4">
+                        Nossas <span class="text-galli-gold">Soluções</span>
+                    </h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">Atuamos com vasta experiência e excelência em soluções de serviços patrimoniais, facilities e tecnologia.</p>
+                </div>
+
+                <div class="relative mb-24 px-4 md:px-12">
+                    <button id="prev-slide" class="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white border border-gray-200 text-galli-dark p-3 rounded-full shadow-lg hover:bg-galli-gold hover:text-white transition-all transform hover:scale-110">
+                        <i data-lucide="chevron-left" class="w-6 h-6"></i>
+                    </button>
+                    
+                    <button id="next-slide" class="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white border border-gray-200 text-galli-dark p-3 rounded-full shadow-lg hover:bg-galli-gold hover:text-white transition-all transform hover:scale-110">
+                        <i data-lucide="chevron-right" class="w-6 h-6"></i>
+                    </button>
+
+                    <div class="overflow-hidden py-4 -mx-4 px-4 touch-pan-y">
+                        <div id="carousel-track" class="flex carousel-track cursor-grab active:cursor-grabbing" style="transform: translateX(0%);">
+                            </div>
+                    </div>
+                    
+                    <div id="carousel-dots" class="flex justify-center gap-2 mt-6"></div>
+                </div>
+
+                <div class="bg-galli-dark rounded-2xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-galli-gold opacity-10 rounded-full blur-3xl"></div>
+                    <h3 class="text-2xl font-display font-bold text-white uppercase mb-8 relative z-10 border-b border-gray-700 pb-4 inline-block">Quadro de Profissionais</h3>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 relative z-10">
+                        <div class="flex items-center gap-3 group">
+                            <div class="flex-shrink-0 w-2 h-2 rounded-full bg-galli-gold group-hover:scale-150 transition-transform"></div>
+                            <i data-lucide="shield-check" class="w-5 h-5 text-gray-400 group-hover:text-galli-gold transition-colors"></i>
+                            <span class="text-gray-300 font-medium group-hover:text-white transition-colors">Vigilante Patrimonial</span>
+                        </div>
+                        <div class="flex items-center gap-3 group">
+                            <div class="flex-shrink-0 w-2 h-2 rounded-full bg-galli-gold group-hover:scale-150 transition-transform"></div>
+                            <i data-lucide="eye" class="w-5 h-5 text-gray-400 group-hover:text-galli-gold transition-colors"></i>
+                            <span class="text-gray-300 font-medium group-hover:text-white transition-colors">Vigilante Rondista</span>
+                        </div>
+                        <div class="flex items-center gap-3 group">
+                            <div class="flex-shrink-0 w-2 h-2 rounded-full bg-galli-gold group-hover:scale-150 transition-transform"></div>
+                            <i data-lucide="briefcase" class="w-5 h-5 text-gray-400 group-hover:text-galli-gold transition-colors"></i>
+                            <span class="text-gray-300 font-medium group-hover:text-white transition-colors">Operador de CFTV</span>
+                        </div>
+                        <div class="flex items-center gap-3 group">
+                            <div class="flex-shrink-0 w-2 h-2 rounded-full bg-galli-gold group-hover:scale-150 transition-transform"></div>
+                            <i data-lucide="users" class="w-5 h-5 text-gray-400 group-hover:text-galli-gold transition-colors"></i>
+                            <span class="text-gray-300 font-medium group-hover:text-white transition-colors">Vigia</span>
+                        </div>
+                        <div class="flex items-center gap-3 group">
+                            <div class="flex-shrink-0 w-2 h-2 rounded-full bg-galli-gold group-hover:scale-150 transition-transform"></div>
+                            <i data-lucide="file-check" class="w-5 h-5 text-gray-400 group-hover:text-galli-gold transition-colors"></i>
+                            <span class="text-gray-300 font-medium group-hover:text-white transition-colors">Controlador de Acesso</span>
+                        </div>
+                        <div class="flex items-center gap-3 group">
+                            <div class="flex-shrink-0 w-2 h-2 rounded-full bg-galli-gold group-hover:scale-150 transition-transform"></div>
+                            <i data-lucide="building-2" class="w-5 h-5 text-gray-400 group-hover:text-galli-gold transition-colors"></i>
+                            <span class="text-gray-300 font-medium group-hover:text-white transition-colors">Porteiro</span>
+                        </div>
+                        <div class="flex items-center gap-3 group">
+                            <div class="flex-shrink-0 w-2 h-2 rounded-full bg-galli-gold group-hover:scale-150 transition-transform"></div>
+                            <i data-lucide="file-check" class="w-5 h-5 text-gray-400 group-hover:text-galli-gold transition-colors"></i>
+                            <span class="text-gray-300 font-medium group-hover:text-white transition-colors">Fiscal de Piso</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="diferenciais" class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-anim">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-24">
+                    <div class="lg:col-span-5 bg-galli-gold p-10 rounded-xl text-galli-dark shadow-lg">
+                        <h3 class="text-3xl font-display font-black uppercase mb-8 leading-tight">Vantagens da <br/> Terceirização</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-3">
+                                <div class="bg-galli-dark rounded-full p-1 mt-1 text-galli-gold flex-shrink-0"><i data-lucide="check-circle-2" class="w-4 h-4"></i></div>
+                                <p class="font-bold text-lg leading-tight">Redução de Custos Operacionais</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="bg-galli-dark rounded-full p-1 mt-1 text-galli-gold flex-shrink-0"><i data-lucide="check-circle-2" class="w-4 h-4"></i></div>
+                                <p class="font-bold text-lg leading-tight">Flexibilidade e Escalabilidade</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="bg-galli-dark rounded-full p-1 mt-1 text-galli-gold flex-shrink-0"><i data-lucide="check-circle-2" class="w-4 h-4"></i></div>
+                                <p class="font-bold text-lg leading-tight">Redução de Responsabilidades Legais</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="bg-galli-dark rounded-full p-1 mt-1 text-galli-gold flex-shrink-0"><i data-lucide="check-circle-2" class="w-4 h-4"></i></div>
+                                <p class="font-bold text-lg leading-tight">Melhor Gestão de Recursos Humanos</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="bg-galli-dark rounded-full p-1 mt-1 text-galli-gold flex-shrink-0"><i data-lucide="check-circle-2" class="w-4 h-4"></i></div>
+                                <p class="font-bold text-lg leading-tight">Especialização e Qualidade</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="lg:col-span-7 flex flex-col justify-center">
+                        <h3 class="text-3xl md:text-4xl font-display font-black text-galli-dark uppercase mb-10">Nosso <span class="text-galli-gold">Diferencial</span></h3>
+                        <div class="space-y-8">
+                            <div class="flex gap-6 items-start p-4 hover:bg-white rounded-lg transition-colors duration-300">
+                                <div class="flex-shrink-0">
+                                    <div class="w-14 h-14 rounded-full border-2 border-galli-gold flex items-center justify-center text-galli-gold bg-white">
+                                        <i data-lucide="shield-check" class="w-6 h-6"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-gray-900 uppercase mb-2">Fiscalização Permanente</h4>
+                                    <p class="text-gray-600 leading-relaxed">Estrutura com fiscalização atuante em todos os postos de serviço, coordenação de área e supervisão ativa (diurno/noturno).</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-6 items-start p-4 hover:bg-white rounded-lg transition-colors duration-300">
+                                <div class="flex-shrink-0">
+                                    <div class="w-14 h-14 rounded-full border-2 border-galli-gold flex items-center justify-center text-galli-gold bg-white">
+                                        <i data-lucide="trending-up" class="w-6 h-6"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-gray-900 uppercase mb-2">Avaliações Periódicas</h4>
+                                    <p class="text-gray-600 leading-relaxed">Operações com rigorosa avaliação periódica por meio de relatórios operacionais.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-6 items-start p-4 hover:bg-white rounded-lg transition-colors duration-300">
+                                <div class="flex-shrink-0">
+                                    <div class="w-14 h-14 rounded-full border-2 border-galli-gold flex items-center justify-center text-galli-gold bg-white">
+                                        <i data-lucide="clock" class="w-6 h-6"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-gray-900 uppercase mb-2">Plantão 24 Horas</h4>
+                                    <p class="text-gray-600 leading-relaxed">Equipe operacional disponível todos os dias da semana para atender qualquer emergência.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-galli-dark text-white overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-anim">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-display font-black uppercase tracking-tight">Pontos Cruciais do <br/><span class="text-galli-gold">Gerenciamento de Risco</span></h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-0 relative">
+                    <div class="hidden md:block absolute top-12 left-0 w-full h-1 bg-gray-700 z-0"></div>
+                    
+                    <div class="relative z-10 px-6 py-8 group">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-24 h-24 bg-galli-dark border-4 border-galli-gold rounded-full flex items-center justify-center text-5xl font-black text-white mb-6 shadow-[0_0_20px_rgba(197,179,88,0.3)] group-hover:bg-galli-gold group-hover:text-galli-dark transition-colors duration-500">1</div>
+                            <h3 class="text-2xl font-bold uppercase text-galli-gold mb-4 group-hover:text-white transition-colors">Vulnerabilidade</h3>
+                            <p class="text-gray-400 leading-relaxed group-hover:text-gray-200">Devemos a cada caso concreto medir o excesso de vulnerabilidade do produto ou local.</p>
+                            <i data-lucide="arrow-right" class="md:hidden mt-8 text-galli-gold opacity-50 w-8 h-8"></i>
+                        </div>
+                    </div>
+
+                    <div class="relative z-10 px-6 py-8 group">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-24 h-24 bg-galli-dark border-4 border-galli-gold rounded-full flex items-center justify-center text-5xl font-black text-white mb-6 shadow-[0_0_20px_rgba(197,179,88,0.3)] group-hover:bg-galli-gold group-hover:text-galli-dark transition-colors duration-500">2</div>
+                            <h3 class="text-2xl font-bold uppercase text-galli-gold mb-4 group-hover:text-white transition-colors">Atratividade</h3>
+                            <p class="text-gray-400 leading-relaxed group-hover:text-gray-200">Após a medição da vulnerabilidade, deve-se analisar a atratividade do produto ou local.</p>
+                            <i data-lucide="arrow-right" class="md:hidden mt-8 text-galli-gold opacity-50 w-8 h-8"></i>
+                        </div>
+                    </div>
+
+                    <div class="relative z-10 px-6 py-8 group">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-24 h-24 bg-galli-dark border-4 border-galli-gold rounded-full flex items-center justify-center text-5xl font-black text-white mb-6 shadow-[0_0_20px_rgba(197,179,88,0.3)] group-hover:bg-galli-gold group-hover:text-galli-dark transition-colors duration-500">3</div>
+                            <h3 class="text-2xl font-bold uppercase text-galli-gold mb-4 group-hover:text-white transition-colors">Oportunidade</h3>
+                            <p class="text-gray-400 leading-relaxed group-hover:text-gray-200">Superados os passos anteriores, montaremos um plano contingencial para dirimir a oportunidade de sinistro.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="galeria" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-anim">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-display font-black text-galli-dark uppercase mb-4">
+                        Nossos <span class="text-galli-gold">Clientes & Estrutura</span>
+                    </h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">Confira um pouco da nossa equipe em ação. Resultados reais para clientes reais.</p>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px]">
+                    <div class="col-span-2 row-span-2 overflow-hidden rounded-xl cursor-pointer group shadow-md" onclick="openLightbox(this)">
+                        <img src="foto1.jpg" alt="Foto 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+                    </div>
+                    <div class="overflow-hidden rounded-xl cursor-pointer group shadow-md" onclick="openLightbox(this)">
+                        <img src="foto2.jpg" alt="Foto 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+                    </div>
+                    <div class="overflow-hidden rounded-xl cursor-pointer group shadow-md" onclick="openLightbox(this)">
+                        <img src="foto3.jpg" alt="Foto 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+                    </div>
+                    <div class="overflow-hidden rounded-xl cursor-pointer group shadow-md" onclick="openLightbox(this)">
+                        <img src="foto4.jpg" alt="Foto 4" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+                    </div>
+                    <div class="overflow-hidden rounded-xl cursor-pointer group shadow-md" onclick="openLightbox(this)">
+                        <img src="foto5.jpg" alt="Foto 5" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="py-24 bg-galli-beige relative">
+            <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 scroll-anim">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                    <div>
+                        <h2 class="text-5xl font-display font-black text-galli-dark uppercase mb-6 leading-none">Vamos <br/> Conversar?</h2>
+                        <p class="text-xl text-gray-700 mb-10 font-light">Gostaríamos de agendar uma reunião para discutir mais detalhadamente como podemos ajudá-lo a alcançar o objetivo.</p>
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-4">
+                                <div class="bg-white p-3 rounded-full shadow-sm text-galli-gold"><i data-lucide="phone"></i></div>
+                                <div>
+                                    <p class="text-sm text-gray-500 uppercase font-bold tracking-wider">Telefone / WhatsApp</p>
+                                    <a href="https://wa.me/5521967472721" class="text-lg font-bold text-gray-900 hover:text-galli-gold transition-colors"></a>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="bg-white p-3 rounded-full shadow-sm text-galli-gold"><i data-lucide="mail"></i></div>
+                                <div>
+                                    <p class="text-sm text-gray-500 uppercase font-bold tracking-wider">Email Comercial</p>
+                                    <a href="mailto:Comercial.grupogalli@gmail.com" class="text-lg font-bold text-gray-900 hover:text-galli-gold transition-colors break-all"></a>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="bg-white p-3 rounded-full shadow-sm text-galli-gold"><i data-lucide="map-pin"></i></div>
+                                <div>
+                                    <p class="text-sm text-gray-500 uppercase font-bold tracking-wider">Localização</p>
+                                    <div class="text-lg font-bold text-gray-900">
+                                        <p>Rio de Janeiro, RJ</p>
+                                        <p class="text-xs font-normal text-gray-500 uppercase tracking-tighter">Barra da Tijuca | Tanque</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-2xl p-8 lg:p-10">
+                        <div class="flex bg-gray-100 p-1 rounded-lg mb-8">
+                            <button id="tab-client" class="flex-1 flex items-center justify-center gap-2 py-3 rounded-md text-sm font-bold uppercase tracking-wide transition-all bg-galli-dark text-white shadow-md">
+                                <i data-lucide="user-check" class="w-[18px]"></i> Quero Contratar
+                            </button>
+                            <button id="tab-candidate" class="flex-1 flex items-center justify-center gap-2 py-3 rounded-md text-sm font-bold uppercase tracking-wide transition-all text-gray-500 hover:text-gray-800">
+                                <i data-lucide="briefcase" class="w-[18px]"></i> Trabalhe Conosco
+                            </button>
+                        </div>
+
+                        <form id="contactForm" class="space-y-6" novalidate>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2 uppercase">Nome Completo</label>
+                                <input required name="name" type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-galli-gold focus:border-transparent outline-none bg-gray-50 transition-colors" placeholder="Digite seu nome ou da empresa" />
+                            </div>
+
+                            <div id="field-cnpj">
+                                <label class="block text-sm font-bold text-gray-700 mb-2 uppercase">CNPJ da Empresa</label>
+                                <input required name="cnpj" type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-galli-gold focus:border-transparent outline-none bg-gray-50 transition-colors" placeholder="00.000.000/0000-00" />
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-2 uppercase">Telefone</label>
+                                    <input required name="phone" type="tel" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-galli-gold focus:border-transparent outline-none bg-gray-50 transition-colors" placeholder="(XX) XXXXX-XXXX" />
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-2 uppercase">Email</label>
+                                    <input required name="email" type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-galli-gold focus:border-transparent outline-none bg-gray-50 transition-colors" placeholder="seu@email.com" />
+                                </div>
+                            </div>
+
+                            <div id="field-service">
+                                <label class="block text-sm font-bold text-gray-700 mb-2 uppercase">Serviço de Interesse</label>
+                                <select required name="service" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-galli-gold focus:border-transparent outline-none bg-gray-50 transition-colors">
+                                    <option value="Serviços Patrimoniais">Serviços Patrimoniais</option>
+                                    <option value="Segurança Condominial">Segurança Condominial</option>
+                                    <option value="Segurança Eletrônica">Segurança Eletrônica</option>
+                                    <option value="Gestão de Segurança">Gestão de Segurança</option>
+                                    <option value="Conservação e Limpeza">Conservação e Limpeza</option>
+                                    <option value="Segurança Residencial">Segurança Residencial</option>
+                                    <option value="Segurança Corporativa">Segurança Corporativa</option>
+                                    <option value="Outros">Outros</option>
+                                </select>
+                            </div>
+
+                            <div id="field-role" class="hidden">
+                                <label class="block text-sm font-bold text-gray-700 mb-2 uppercase">Cargo Pretendido</label>
+                                <select name="role" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-galli-gold focus:border-transparent outline-none bg-gray-50 transition-colors">
+                                    <option value="Vigilante">Vigilante</option>
+                                    <option value="Porteiro">Porteiro</option>
+                                    <option value="Fiscal de Piso">Fiscal de Piso</option>
+                                    <option value="Auxiliar de Serviços Gerais">Auxiliar de Serviços Gerais</option>
+                                    <option value="Jardineiro">Jardineiro</option>
+                                    <option value="Administrativo">Administrativo</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2 uppercase">Mensagem</label>
+                                <textarea required name="message" id="textarea-msg" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-galli-gold focus:border-transparent outline-none bg-gray-50 transition-colors" placeholder="Como podemos ajudar sua empresa?"></textarea>
+                            </div>
+
+                            <div id="field-pdf-note" class="hidden">
+                                <label class="block text-sm font-bold text-gray-700 mb-2 uppercase">Currículo (PDF)</label>
+                                <p class="text-xs text-gray-500 mb-2">Ao clicar em enviar, seu gerenciador de e-mail abrirá. Por favor, anexe seu currículo ao e-mail.</p>
+                            </div>
+
+                            <div id="buttons-client" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <button type="button" id="btn-submit-wpp" class="flex items-center justify-center gap-2 py-4 rounded-lg font-black uppercase tracking-wider text-white transition-all transform hover:-translate-y-1 shadow-lg bg-green-600 hover:bg-green-700">
+                                    <i data-lucide="phone" class="w-[18px]"></i> Via WhatsApp
+                                </button>
+                                <button type="button" id="btn-submit-email" class="flex items-center justify-center gap-2 py-4 rounded-lg font-black uppercase tracking-wider text-white transition-all transform hover:-translate-y-1 shadow-lg bg-galli-dark hover:bg-gray-800">
+                                    <i data-lucide="mail" class="w-[18px]"></i> Via E-mail
+                                </button>
+                            </div>
+
+                            <button type="button" id="btn-submit-candidate" class="hidden w-full flex items-center justify-center gap-2 py-4 rounded-lg font-black uppercase tracking-wider text-white transition-all transform hover:-translate-y-1 shadow-lg bg-galli-gold hover:bg-yellow-600">
+                                <i data-lucide="send" class="w-[18px]"></i> Enviar Candidatura
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-galli-dark text-white pt-16 pb-8 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-16">
+                
+                <div>
+                    <h3 class="text-galli-gold font-display font-bold uppercase tracking-wider mb-6 flex items-center gap-2">
+                        <i data-lucide="mail" class="w-5 h-5"></i> Contato
+                    </h3>
+                    <div class="space-y-6">
+                        <div>
+                            <p class="text-xs text-gray-500 uppercase font-black mb-1">Contratação</p>
+                            <a href="mailto:admissao.grupogalli@gmail.com" class="text-gray-300 hover:text-galli-gold transition-colors break-all">admissao.grupogalli@gmail.com</a>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-500 uppercase font-black mb-1">Orçamento</p>
+                            <a href="mailto:Comercial.grupogalli@gmail.com" class="text-gray-300 hover:text-galli-gold transition-colors break-all">Comercial.grupogalli@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-galli-gold font-display font-bold uppercase tracking-wider mb-6 flex items-center gap-2">
+                        <i data-lucide="map-pin" class="w-5 h-5"></i> Localização
+                    </h3>
+                    <div class="space-y-6">
+                        <div>
+                            <p class="text-xs text-gray-500 uppercase font-black mb-1">Galli Serviços Patrimoniais</p>
+                            <p class="text-gray-300 leading-relaxed">Avenida Ayrton Sena, 2.500<br />Barra da Tijuca, Rio de Janeiro</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-500 uppercase font-black mb-1">Galli Vigilância e Segurança</p>
+                            <p class="text-gray-300 leading-relaxed">Rua Godofredo Viana, 372<br />Tanque, CEP - 22.730-020</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-galli-gold font-display font-bold uppercase tracking-wider mb-6 flex items-center gap-2">
+                        <i data-lucide="instagram" class="w-5 h-5"></i> Rede Social
+                    </h3>
+                    <a href="https://www.instagram.com/Grupo_Galli" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-3 bg-white/5 p-4 rounded-xl hover:bg-white/10 transition-all border border-white/10">
+                        <div class="bg-gradient-to-tr from-yellow-500 to-purple-600 p-2 rounded-lg text-white">
+                            <i data-lucide="instagram" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-500 uppercase font-black">Siga-nos</p>
+                            <p class="text-lg font-bold group-hover:text-galli-gold transition-colors">Grupo_Galli</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-3">
+                    <img src="brasao.png" alt="Logo" class="w-8 h-auto object-contain" />
+                    <span class="font-display font-black text-xl tracking-tighter uppercase"><span class="text-galli-gold">GRUPO</span> GALLI</span>
+                </div>
+                <p class="text-gray-600 text-xs text-center md:text-right">
+                    &copy; <script>document.write(new Date().getFullYear())</script> Grupo Galli. Todos os direitos reservados.<br/>
+                    Segurança, Facilities e Excelência Operacional.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
