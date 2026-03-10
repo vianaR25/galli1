@@ -245,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             const role = fd.get('role');
             const body = `Olá, equipe de recrutamento do Grupo Galli.\n\nGostaria de me candidatar para a vaga de ${role}.\n\nMeus Dados:\nNome: ${name}\nTelefone: ${phone}\nEmail: ${email}\n\nMinha Experiência/Mensagem:\n${msg}\n\n(Segue meu currículo em anexo)`;
-            window.location.href = `mailto:admissao.grupogalli@gmail.com?subject=${encodeURIComponent('Candidatura para Vaga de ' + role + ' - ' + name)}&body=${encodeURIComponent(body)}`;
+            window.location.href = `mailto:grupogalli.admissao@gmail.com?subject=${encodeURIComponent('Candidatura para Vaga de ' + role + ' - ' + name)}&body=${encodeURIComponent(body)}`;
         }
     }
 
