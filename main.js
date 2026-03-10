@@ -240,7 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (method === 'whatsapp') {
                 window.open(`https://wa.me/5521967472721?text=${encodeURIComponent(text)}`, '_blank');
             } else {
-                window.location.href = `mailto:Comercial.grupogalli@gmail.com?subject=${encodeURIComponent('Solicitação de Orçamento - ' + name)}&body=${encodeURIComponent(text.replace(/\*/g, ''))}`;
+                window.location.href = `mailto:grupogalli.comercial@gmail.com?subject=${encodeURIComponent('Solicitação de Orçamento - ' + name)}&body=${encodeURIComponent(text.replace(/\*/g, ''))}`;
             }
         } else {
             const role = fd.get('role');
